@@ -18,6 +18,8 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
+        // ESTO HAY QUE SUBIRLO
+        
         // Minicard
         // path: '/:card',
         // element: <MiniCards />,
