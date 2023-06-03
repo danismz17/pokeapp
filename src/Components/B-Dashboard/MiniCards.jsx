@@ -1,35 +1,22 @@
-import React from 'react';
-import { addZeros } from '../Ohters/Function.js';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
 
-export const MiniCards = ({ number, img = "/Images/Icons/Silhouette.png", name }) => {
-  let navigate = useNavigate()
-  // Redirige al hacer click en el 'div' 
-  const handleMiniCardClick = () => {
-    const url = `/pokemon/${name || number}`;
-    navigate(url);
-  };
-
+export const MiniCards = (props) => {
   return (
     <>
-      <div
-        className="minicard"
-        id='miniCard'
-        onClick={handleMiniCardClick}
-      >
+      <div className="minicard">
+
         <div className="minicard-number">
-          <p>{number ? (<> #{addZeros(number)} </>) : (<i>!@#</i>)}{" "}
-          </p>
+          <p> {props.numero} </p>
         </div>
 
         <div className='minicard-image'>
-          <img src={img} alt="" />
+          <img src="/Images/Icons/Silhouette.png" alt="" />
         </div>
 
         <div className="minicard-name">
-          {name ? (<p>{name}</p>) : (<i>Pokemon does not exist.</i>)}
+          <p>{props.nombre}</p>
         </div>
       </div>
     </>
   )
-};
+}

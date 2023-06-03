@@ -9,9 +9,8 @@ const icon = {
   height: "/Images/Icons/height.svg",
   divider: "/Images/Icons/Divider.svg",
   divider96: "/Images/Icons/Divider96.svg",
+
 }
-import { useNavigate } from "react-router-dom";
-import { addZeros } from "../Ohters/Function";
 
 // Contenedor externo de la PokeCard
 export const PkCardContainer = ({ children }) => {
@@ -27,11 +26,10 @@ export const PkCardContainer = ({ children }) => {
 
 // Parte superior de la PokeCard 
 export const PkCardHeader = ({ name, number }) => {
-  // Funcion para regresar a la " home"
-  let navigate = useNavigate();
-  const handleArrowClick = () => {
-    const url = `/`;
-    navigate(url)
+  // Agrega ceros al inicio de un número si corresponde.
+  const addZeros = (numero) => {
+    const numeroStr = numero.toString();
+    return numeroStr.length < 4 ? numeroStr.padStart(3, '0') : numeroStr;
   }
 
   return (
@@ -40,9 +38,7 @@ export const PkCardHeader = ({ name, number }) => {
         src={icon["arrow_left"]}
         alt="Arrow to the Left"
         className='details__header_arrow'
-        onClick={handleArrowClick}
       />
-
       <h1 className='details__header_name'>
         {name ? (<> {name} </>) : (<i>Error</i>)}{" "}
       </h1>
@@ -177,6 +173,12 @@ export const PkCardStatsContainer = ({ children }) => {
 
 // Stats de la PokeCard
 export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
+  // Agrega ceros al inicio de un número si corresponde.
+  const addZeros = (numero) => {
+    const numeroStr = numero.toString();
+    return numeroStr.length < 4 ? numeroStr.padStart(3, '0') : numeroStr;
+  }
+
   return (
     <div className="stats__box">
       <div className="stats__text">

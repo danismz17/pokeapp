@@ -13,6 +13,7 @@ const PokeCard = () => {
       setIsLoading(true);
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
       const responseOther = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`);
+
       const responseData = await response.json();
       const responseOtherData = await responseOther.json();
 
@@ -23,16 +24,18 @@ const PokeCard = () => {
       setIsLoading(false);
       console.log("PokeCard: carga de datos completa");
     }
-  };
-  
+  }
+
   useEffect(() => {
     getPokemonById();
   }, []);
+
   return (
     <>
       {isLoading && (
         <p>Pikachu corriendo - Loading...</p>
       )}
+
       {pokemon && (
         <PkCardContainer>
           <PkCardHeader

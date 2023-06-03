@@ -1,34 +1,48 @@
 import React from 'react';
 import { MiniCards } from './MiniCards';
-import { Outlet } from 'react-router-dom';
 
-export default function Dashboard({ pokemonList, nextPageEffect }) {
+export default function Dashboard(props) {
 
-  function handleScroll() {
-    var scrollableDiv = document.getElementById('myWindows');
-    var isScrolledToBottom = scrollableDiv.scrollTop + scrollableDiv.clientHeight === scrollableDiv.scrollHeight;
+  let valorSearch = "prueba"
 
-    if (isScrolledToBottom) {
-      nextPageEffect()
-      console.log("Carga")
-    }
-  }
+
+  let arrayPrueba = [
+    { nombre: "Joaco" },
+    { nombre: "Beto" },
+    { nombre: "Clara" },
+    { nombre: "Prueba4" },
+    { nombre: "Prueba5" },
+    { nombre: "Prueba4" },
+    { nombre: "Prueba5" },
+    { nombre: "Prueba4" },
+    { nombre: "Prueba5" },
+    { nombre: "Prueba4" },
+    { nombre: "Prueba5" },
+    { nombre: "Prueba4" },
+    { nombre: "Prueba5" },
+    { nombre: "Prueba4" },
+    { nombre: "Prueba5" },
+    { nombre: "Prueba4" },
+    { nombre: "Prueba5" },
+    { nombre: "Prueba4" },
+    { nombre: "Prueba5" },
+  ];
 
   return (
-    <main
-      onScroll={handleScroll}
-      id='myWindows'
-    >
-      {pokemonList.map((pokemon, index) => (
-        <MiniCards
-          key={index}
-          name={pokemon.name}
-          number={pokemon.id}
-          img={pokemon.sprites["other"]["official-artwork"]["front_default"]}
-        />
-      ))}
 
-      <Outlet />
+    <main>
+
+      {arrayPrueba.map((item, index) => (
+
+        item.nombre.toLocaleLowerCase().includes(valorSearch.toLowerCase()) ?
+          <MiniCards
+            key={index}
+            nombre={item.nombre} 
+          /> : ""
+
+        // traer el valor search para este componente
+
+      ))}
     </main>
   );
 }
