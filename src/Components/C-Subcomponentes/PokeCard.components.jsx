@@ -10,6 +10,7 @@ const icon = {
   divider: "/Images/Icons/Divider.svg",
   divider96: "/Images/Icons/Divider96.svg",
 }
+import { useNavigate } from "react-router-dom";
 import { addZeros } from "../Ohters/Function";
 
 // Contenedor externo de la PokeCard
@@ -26,13 +27,22 @@ export const PkCardContainer = ({ children }) => {
 
 // Parte superior de la PokeCard 
 export const PkCardHeader = ({ name, number }) => {
+  // Funcion para regresar a la " home"
+  let navigate = useNavigate();
+  const handleArrowClick = () => {
+    const url = `/`;
+    navigate(url)
+  }
+
   return (
     <div className="details__header">
       <img
         src={icon["arrow_left"]}
         alt="Arrow to the Left"
         className='details__header_arrow'
+        onClick={handleArrowClick}
       />
+
       <h1 className='details__header_name'>
         {name ? (<> {name} </>) : (<i>Error</i>)}{" "}
       </h1>
