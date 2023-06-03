@@ -2,6 +2,7 @@ import React from 'react';
 import { MiniCards } from './MiniCards';
 import { Outlet } from 'react-router-dom';
 
+
 export default function Dashboard({ pokemonList, nextPageEffect }) {
 
   function handleScroll() {

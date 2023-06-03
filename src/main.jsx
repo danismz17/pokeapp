@@ -14,11 +14,8 @@ const router = createBrowserRouter([
     // Home
     path: '/',
     element: <Root />,
-   },
+  },
   {
-    // Ver como rootear a esta pagina, 
-    // <a src"#idpagina">   --->  id="#delapagina"  ?
-    // Pokemon Stats
     path: 'pokemon/:pokemonId',
     element: <PokeCard />
   }
@@ -27,6 +24,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   // Para que no renderize dos veces la carga del fetch
   // <React.StrictMode>
-    <RouterProvider router={router} />
+  <RouterProvider router={router} />
   // </React.StrictMode>,
 )
