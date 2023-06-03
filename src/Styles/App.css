@@ -55,64 +55,6 @@ body {
   color: white;
 }
 
-:root {
-  /* identity */
-  --clr-Primary: #dc0a2d;
-
-  /* Tipos de Pokemon */
-  --clr-Bug: #a7b723;
-  --clr-Dark: #7557ac;
-  --clr-Dragon: #7037ff;
-  --clr-Electric: #f9cf30;
-  --clr-Fairy: #e69eac;
-  --clr-Fighting: #c12239;
-  --clr-Fire: #f57d31;
-  --clr-Flying: #a891ec;
-  --clr-Ghost: #70559b;
-  --clr-Normal: #aaa67f;
-  --clr-Grass: #74cb48;
-  --clr-Ground: #dec16b;
-  --clr-Ice: #9ad6df;
-  --clr-Posion: #a43e9e;
-  --clr-Psychic: #fb5584;
-  --clr-Rock: #b69e31;
-  --clr-Steel: #b7b9d0;
-  --clr-Water: #6493eb;
-
-  /*Color de fuente */
-
-  --clr-font-dark-gray: #212121;
-  --clr-font-medium-gray: #666666;
-  --clr-font-light-gray: #e0e0e0;
-  --clr-font-white: #ffffff;
-  --clr-background: #f7f7f7;
-
-  /*Fuentes - Header */
-
-  --fnt-header-headline-bold: 700 24px;
-  --fnt-header-subtitle-1-bold: 700 14px;
-  --fnt-header-subtitle-2-bold: 700 12px;
-  --fnt-header-subtitle-3-bold: 700 10px;
-
-  /*Fuentes - Body */
-  --fnt-body-caption-regular: 400 8px;
-  --fnt-body-1-regular: 400 14px;
-  --fnt-body-2-regular: 400 12px;
-  --fnt-body-3-regular: 400 10px;
-
-  /*Sombras*/
-  /* 
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
-    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
-
-    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.4);
-    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
-
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.4);
-    
-    */
-}
-
 .web-container {
   width: 100vw;
   height: 100vh;
@@ -319,6 +261,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: end;
+  text-transform: capitalize;
 }
 
 .minicard-name p {

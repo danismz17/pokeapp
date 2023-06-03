@@ -6,8 +6,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './Routes/Root'
 import PokeCard from './Components/C-Subcomponentes/PokeCard'
 
-
-
 // CSS
 import "./Styles/main.css"
 
@@ -16,17 +14,10 @@ const router = createBrowserRouter([
     // Home
     path: '/',
     element: <Root />,
-    children: [
-      {
-        // ESTO HAY QUE SUBIRLO
-        
-        // Minicard
-        // path: '/:card',
-        // element: <MiniCards />,
-      },
-    ]
-  },
+   },
   {
+    // Ver como rootear a esta pagina, 
+    // <a src"#idpagina">   --->  id="#delapagina"  ?
     // Pokemon Stats
     path: 'pokemon/:pokemonId',
     element: <PokeCard />
@@ -34,7 +25,8 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // Para que no renderize dos veces la carga del fetch
+  // <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )

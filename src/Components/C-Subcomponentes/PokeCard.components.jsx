@@ -9,8 +9,8 @@ const icon = {
   height: "/Images/Icons/height.svg",
   divider: "/Images/Icons/Divider.svg",
   divider96: "/Images/Icons/Divider96.svg",
-
 }
+import { addZeros } from "../Ohters/Function";
 
 // Contenedor externo de la PokeCard
 export const PkCardContainer = ({ children }) => {
@@ -26,12 +26,6 @@ export const PkCardContainer = ({ children }) => {
 
 // Parte superior de la PokeCard 
 export const PkCardHeader = ({ name, number }) => {
-  // Agrega ceros al inicio de un número si corresponde.
-  const addZeros = (numero) => {
-    const numeroStr = numero.toString();
-    return numeroStr.length < 4 ? numeroStr.padStart(3, '0') : numeroStr;
-  }
-
   return (
     <div className="details__header">
       <img
@@ -173,12 +167,6 @@ export const PkCardStatsContainer = ({ children }) => {
 
 // Stats de la PokeCard
 export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
-  // Agrega ceros al inicio de un número si corresponde.
-  const addZeros = (numero) => {
-    const numeroStr = numero.toString();
-    return numeroStr.length < 4 ? numeroStr.padStart(3, '0') : numeroStr;
-  }
-
   return (
     <div className="stats__box">
       <div className="stats__text">

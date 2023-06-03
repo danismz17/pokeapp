@@ -2,35 +2,33 @@ import React from 'react';
 import { MiniCards } from './MiniCards';
 import { Outlet } from 'react-router-dom';
 
-export default function Dashboard(api) {
-  console.log("Dashboard: viaja?", api)
+export default function Dashboard({ pokemonList, nextPageEffect }) {
 
-  let valorSearch = "algo3";
-  const arrayPrueba = [
-    {
-      "name": 'algo',
-      "name": 'algo2',
-      "name": 'algo3',
+  function handleScroll() {
+    var scrollableDiv = document.getElementById('myWindows');
+    var isScrolledToBottom = scrollableDiv.scrollTop + scrollableDiv.clientHeight === scrollableDiv.scrollHeight;
+
+    if (isScrolledToBottom) {
+      nextPageEffect()
+      console.log("Carga")
     }
-  ]
+  }
 
   return (
-
-    <main>
-      {arrayPrueba.map((item, index) => (
-        item.name.includes(valorSearch) ?
-          <MiniCards
-            key={index}
-            name={item.name}
-          /> : "vacio"
+    <main
+      onScroll={handleScroll}
+      id='myWindows'
+    >
+      {pokemonList.map((pokemon, index) => (
+        <MiniCards
+          key={index}
+          name={pokemon.name}
+          number={pokemon.id}
+          img={pokemon.sprites["other"]["official-artwork"]["front_default"]}
+        />
       ))}
-      <div className="">
-          {/* {isLoading && (
-          <p>Loading...</p>
-        )} */}
 
-          <Outlet />
-        </div>
+      <Outlet />
     </main>
   );
 }
