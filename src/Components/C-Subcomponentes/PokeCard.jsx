@@ -23,7 +23,6 @@ const PokeCard = () => {
       const responseOther = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`);
       const responseData = await response.json();
       const responseOtherData = await responseOther.json();
-
       setPokemon({ ...responseData, ...responseOtherData });
     } catch (error) {
       console.log('Ha ocurrido un error: ', error);
@@ -40,6 +39,7 @@ const PokeCard = () => {
     <>
       {isLoading && (
         <p>Pikachu corriendo - Loading...</p>
+        // <IntroAnimation/> Animacion 2
       )}
       {pokemon && (
         <PkCardContainer>
@@ -51,7 +51,10 @@ const PokeCard = () => {
             img={pokemon.sprites["other"]["official-artwork"]["front_default"]}
           />
           <PkCardDetailsContainer>
-            <PKCardDetailsTop />
+            <PKCardDetailsTop
+              type1={pokemon.types[0].type.name}
+              type2={pokemon.types[1] ? pokemon.types[1].type.name : null}
+            />
             <PKCardDetailsCenter
               weight={pokemon.weight}
               height={pokemon.height}

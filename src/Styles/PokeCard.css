@@ -41,6 +41,9 @@
   gap: 16px;
 }
 
+.details__header_arrow{
+  
+}
 .details__header_number {
   font: var(--fnt-header-subtitle-2-bold);
 }
@@ -230,51 +233,31 @@
   font: var(--fnt-body-3-regular);
 }
 
-.stats_progres {
+.stats_progress {
   height: 90px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
-.progres-bar {
+.progress-bar {
   position: relative;
   flex-direction: column;
   display: flex;
-  /* width: 233px; */
   width: 233px;
   height: 4px;
 
   border-radius: 4px;
-  background-color: rgb(245, 125, 49, 0.2);
+  background-color: #f57d3133;
+  /* background-color: rgb(245, 125, 49, 0.2); */
 }
 
-.progres-bar-charge {
+.progress-bar-charge {
   position: relative;
   flex-direction: column;
   display: flex;
   height: 8px;
   border-radius: 4px;
-  background-color: rgb(245, 125, 49);
-}
-
-/* --> VER <-- */
-.progres-1 {
-  width: 50%;
-}
-.progres-2 {
-  width: 15%;
-}
-.progres-3 {
-  width: 40%;
-}
-.progres-4 {
-  width: 49%;
-}
-.progres-5 {
-  width: 30%;
-}
-.progres-6 {
-  width: 70%;
+  background-color: #f57d31;
+  /* background-color: rgb(245, 125, 49); */
 }

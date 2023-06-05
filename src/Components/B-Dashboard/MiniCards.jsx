@@ -2,7 +2,7 @@ import React from 'react';
 import { addZeros } from '../Ohters/Function.js';
 import { useNavigate } from 'react-router-dom';
 
-export const MiniCards = ({ number, img = "/Images/Icons/Silhouette.png", name }) => {
+export const MiniCards = ({ number, img = "/Images/Icons/Silhouette.png", name, type1, type2 }) => {
   // Redirige al hacer click en el 'div' 
   let navigate = useNavigate()
   const handleMiniCardClick = () => {
@@ -28,7 +28,25 @@ export const MiniCards = ({ number, img = "/Images/Icons/Silhouette.png", name }
         <div className="minicard-name">
           {name ? (<p>{name}</p>) : (<i>Pokemon does not exist.</i>)}
         </div>
-      </div>
+
+        {/* <div className=''>
+          {type2 ? (
+            <>
+              <span className={`type?`}>
+                {type1}
+              </span>
+              <span className={`type?`}>
+                {type2}
+              </span>
+            </>
+          ) : (
+            <span className={`type?`}>
+              {type1}
+            </span>
+          )}
+        </div> */}
+
+      </div >
     </>
   )
 };

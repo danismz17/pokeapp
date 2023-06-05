@@ -1,5 +1,6 @@
 import { icon } from '../PokeCard.components/icons.js'
 import { addZeros } from "../../Ohters/Function";
+import { ProgressBarCustom } from './ProgressBarCustom.jsx';
 
 // Stats de la PokeCard
 export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
@@ -26,27 +27,27 @@ export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
       </div>
 
 
-      {/* Corregir ProgressBar */}
-      <div className="stats_progres">
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-1'></div>
+      <div className="stats_progress">
+        <div className="progress-bar">
+          <ProgressBarCustom now={hp} />
         </div>
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-2'></div>
+        <div className="progress-bar">
+          <ProgressBarCustom now={atk} />
         </div>
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-3'></div>
+        <div className="progress-bar">
+          <ProgressBarCustom now={def} />
         </div>
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-4'></div>
+        <div className="progress-bar">
+          <ProgressBarCustom now={satk} />
         </div>
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-5'></div>
+        <div className="progress-bar">
+          <ProgressBarCustom now={sdef} />
         </div>
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-6'></div>
+        <div className="progress-bar">
+          <ProgressBarCustom now={spd} />
         </div>
       </div>
+
     </div>
   );
 }

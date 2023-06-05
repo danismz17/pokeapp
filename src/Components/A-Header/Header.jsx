@@ -1,12 +1,12 @@
 import Logo from "./Logo";
 import SearchFilter from "./SearchFilter";
 
-export default function Header(props) {
+export default function Header({ pokemonList }) {
   return (
     <>
       <header>
         <Logo />
-        <SearchFilter />
+        <SearchFilter pokemonList={pokemonList} />
       </header>
     </>
   )
