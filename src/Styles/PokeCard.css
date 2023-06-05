@@ -41,9 +41,6 @@
   gap: 16px;
 }
 
-.details__header_arrow{
-  
-}
 .details__header_number {
   font: var(--fnt-header-subtitle-2-bold);
 }
