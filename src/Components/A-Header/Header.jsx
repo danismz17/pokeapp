@@ -1,13 +1,12 @@
 import Logo from "./Logo";
 import SearchFilter from "./SearchFilter";
 
-export default function Header({ pokemonList, value, onChange }) {
+export default function Header({ value, onChange }) {
   return (
     <>
       <header>
         <Logo />
         <SearchFilter 
-        pokemonList={pokemonList} 
         value={value}
         onChange={onChange}
          />
