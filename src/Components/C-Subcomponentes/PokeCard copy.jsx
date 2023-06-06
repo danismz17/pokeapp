@@ -15,7 +15,6 @@ const PokeCard = () => {
   const { pokemonId } = useParams();
   const [pokemon, setPokemon] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  // const [type, setType] = useState('');
 
   const getPokemonById = async () => {
     try {
@@ -32,13 +31,10 @@ const PokeCard = () => {
       console.log("PokeCard: carga de datos completa");
     }
   };
-
+  
   useEffect(() => {
     getPokemonById();
   }, []);
-  
-  // Necesito consultar que tipo de pokemon es antes de que renderize.
-  console.log(pokemon?.types?.[0]?.type?.name) // Consulta que tipo de pokemon es teniendo en cuenta el caso 'undefined' (al comienzo) 
   return (
     <>
       {isLoading && (

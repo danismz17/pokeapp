@@ -48,7 +48,7 @@ const TypeContainer = ({ activeTags, handleTagContainerClick }) => {
 };
 
 // 
-export default function SearchFilter({ pokemonList }) {
+export default function SearchFilter({ pokemonList, value, onChange }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState('/Images/Icons/sort.svg');
   const [activeTags, setActiveTags] = useState([]);
@@ -85,18 +85,18 @@ export default function SearchFilter({ pokemonList }) {
 
   // ----- lv3 -----
   // Funcion buscador
-// --> PROBLEMA, sino tengo cargado la pagian con el pokemon que corresponder no me encuentra coincidencia ninguna
+  // --> PROBLEMA, sino tengo cargado la pagian con el pokemon que corresponder no me encuentra coincidencia ninguna
 
-  const [inputSearch, setInputSearch] = useState('');
-  const handleInputSearch = (e) => {
-    const search = e.target.value.toString();
-    console.log('Input: el texto ingresado:', search)
-    // Convierto 'el objeto' pokemonList en un arrary para poder utilizar las funciones 'filter' e 'includes'. 
-    const toSearch = pokemonList.map(pokemon => pokemon.name);
-    const filteredPokemons = toSearch.filter(pokemonName => pokemonName.includes(search.toLowerCase()));
-    console.log('Pokemons filtrados:', filteredPokemons);
-    setInputSearch(search);
-  }
+  // const [inputSearch, setInputSearch] = useState('');
+  // const handleInputSearch = (e) => {
+  //   const search = e.target.value.toString();
+  //   console.log('Input: el texto ingresado:', search)
+  //   // Convierto 'el objeto' pokemonList en un arrary para poder utilizar las funciones 'filter' e 'includes'. 
+  //   const toSearch = pokemonList.map(pokemon => pokemon.name);
+  //   const filteredPokemons = toSearch.filter(pokemonName => pokemonName.includes(search.toLowerCase()));
+  //   console.log('Pokemons filtrados:', filteredPokemons);
+  //   setInputSearch(search);
+  // }
 
   return (
     <>
@@ -109,8 +109,10 @@ export default function SearchFilter({ pokemonList }) {
             <input
               type="search"
               placeholder="Search"
-              value={inputSearch}
-              onChange={handleInputSearch}
+              value={value}
+              // value={inputSearch}
+              onChange={onChange}
+            // onChange={handleInputSearch}
             // onKeyDown={handleInputSearchEnter}
             />
           </div>

@@ -7,12 +7,12 @@ export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
   return (
     <div className="stats__box">
       <div className="stats__text">
-        <span className='stats__text'>HP</span>
-        <span className='stats__text'>ATK</span>
-        <span className='stats__text'>DEF</span>
-        <span className='stats__text'>SATK</span>
-        <span className='stats__text'>SDEF</span>
-        <span className='stats__text'>SPD</span>
+        <span className='stats__text font-clr-fire'>HP</span>
+        <span className='stats__text font-clr-fire'>ATK</span>
+        <span className='stats__text font-clr-fire'>DEF</span>
+        <span className='stats__text font-clr-fire'>SATK</span>
+        <span className='stats__text font-clr-fire'>SDEF</span>
+        <span className='stats__text font-clr-fire'>SPD</span>
       </div>
 
       <img src={icon.divider96} alt="" />
@@ -27,24 +27,27 @@ export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
       </div>
 
 
+      {/* Para ir cambiando los colores segun el tipo de pokemon deberia de realizar una funcion aparte que modifique 
+          los balores de baseBgColor y bgColor
+      */}
       <div className="stats_progress">
         <div className="progress-bar">
-          <ProgressBarCustom now={hp} />
+          <ProgressBarCustom now={hp} baseBgColor="#f57d3133" bgColor="#f57d31" />
         </div>
         <div className="progress-bar">
-          <ProgressBarCustom now={atk} />
+          <ProgressBarCustom now={atk} baseBgColor="#f57d3133" bgColor="#f57d31" />
         </div>
         <div className="progress-bar">
-          <ProgressBarCustom now={def} />
+          <ProgressBarCustom now={def} baseBgColor="#f57d3133" bgColor="#f57d31" />
         </div>
         <div className="progress-bar">
-          <ProgressBarCustom now={satk} />
+          <ProgressBarCustom now={satk} baseBgColor="#f57d3133" bgColor="#f57d31" />
         </div>
         <div className="progress-bar">
-          <ProgressBarCustom now={sdef} />
+          <ProgressBarCustom now={sdef} baseBgColor="#f57d3133" bgColor="#f57d31" />
         </div>
         <div className="progress-bar">
-          <ProgressBarCustom now={spd} />
+          <ProgressBarCustom now={spd} baseBgColor="#f57d3133" bgColor="#f57d31" />
         </div>
       </div>
 

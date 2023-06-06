@@ -4,7 +4,7 @@ import { icon } from '../PokeCard.components/icons.js'
 export const PkCardContainer = ({ children }) => {
   return (
     <>
-      <div className="details__container bg-color">
+      <div className={`details__container bg-fire`}>
         <img className='bg-card' src={icon["pk_bg"]} alt="background Pokeball" />
         {children}
       </div>

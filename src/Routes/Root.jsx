@@ -10,8 +10,8 @@ import { useParams } from 'react-router-dom';
 
 function Root() {
   const [pokemonList, setPokemonList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1); // Comienza en 1, para mantener el valor inicial del offset en 0.
-  const pageSize = 20; // Numero de pokemons por pagina
+  // const [currentPage, setCurrentPage] = useState(1); // Comienza en 1, para mantener el valor inicial del offset en 0.
+  // const pageSize = 20; // Numero de pokemons por pagina
   const [isLoading, setIsLoading] = useState(false);
 
   // ---
@@ -21,7 +21,8 @@ function Root() {
   const getPokemons = async (page) => { // 'page' se utiliza para calcular el offset en la URL, el cual indica en que pagina se encuentra
     try {
       setIsLoading(true);
-      const responseToPage = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${(page - 1) * pageSize}&limit=20`);
+      const responseToPage = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=1000`);
+      // const responseToPage = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${(page - 1) * pageSize}&limit=20`);
       const dataToPage = await responseToPage.json(); // Datos de los pokemons por pagina 
       const pokemonsDataToPage = await Promise.all(
         dataToPage.results.map(async (item) => {
@@ -49,17 +50,17 @@ function Root() {
   };
 
   // Funcion para agregar una nueva pagina
-  const nextPage = () => {
-    // Aumenta en 1 el numero de pagina ('page') solicitando que se muestren mas pokemons, luego para que se renderizen los cambios se lo pasa al useEffect.
-    setTimeout(() => {
-      setCurrentPage(currentPage + 1);
-    }, 1000);
-  };
+  // const nextPage = () => {
+  //   // Aumenta en 1 el numero de pagina ('page') solicitando que se muestren mas pokemons, luego para que se renderizen los cambios se lo pasa al useEffect.
+  //   setTimeout(() => {
+  //     setCurrentPage(currentPage + 1);
+  //   }, 1000);
+  // };
 
   useEffect(() => {
-    getPokemons(currentPage);
-  }, [currentPage]);
+    getPokemons();// getPokemons(currentPage)
 
+  }, []);// [currentPage]
 
   // ------ lv1 -------
   // const search = "chArm";
@@ -81,25 +82,35 @@ function Root() {
   // Funcion buscador 
   // --> PROBLEMA, sino tengo cargado la pagian con el pokemon que corresponder no me encuentra coincidencia ninguna
 
-  // const [inputSearch, setInputSearch] = useState('');
-  // const handleInputSearch = (e) => {
-  //   const search = e.target.value.toString(); 
-  //   console.log('el texto:', search)
+  const [inputSearch, setInputSearch] = useState('');
+  const handleInputSearch = (e) => {
+    const search = e.target.value.toString(); 
+    console.log('el texto:', search)
 
-  //   // Convierto 'el objeto' pokemonList en un arrary para poder utilizar las funciones 'filter' e 'includes'. 
-  //   const toSearch = pokemonList.map(pokemon => pokemon.name);
-  //   const filteredPokemons = toSearch.filter(pokemonName => pokemonName.includes(search.toLowerCase()));
-  //   console.log('Pokemons filtrados:', filteredPokemons);
-  //   setInputSearch(search);
-  // }
+    // Convierto 'el objeto' pokemonList en un arrary para poder utilizar las funciones 'filter' e 'includes'. 
+    const toSearch = pokemonList.map(pokemon => pokemon.name);
+    const filteredPokemons = toSearch.filter(pokemonName => pokemonName.includes(search.toLowerCase()));
+    console.log('Pokemons filtrados:', filteredPokemons);
+    setInputSearch(search);
+  }
+  
 
   return (
     <>
       {isLoading }
         <div className="web-container">
           <IntroAnimation />
-          <Header pokemonList={pokemonList} />
-          <Dashboard pokemonList={pokemonList} nextPageEffect={nextPage} />
+          <Header
+           pokemonList={pokemonList}
+           value={inputSearch}
+           onChange={handleInputSearch}
+           />
+          <Dashboard
+          envia
+           pokemonList={pokemonList} 
+
+          //  nextPageEffect={nextPage}
+            />
         </div>
 
     </>

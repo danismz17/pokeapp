@@ -3,23 +3,23 @@ import { MiniCards } from './MiniCards';
 import { Outlet } from 'react-router-dom';
 
 
-export default function Dashboard({ pokemonList, nextPageEffect }) {
+export default function Dashboard({ pokemonList, envia }) {
 
   // Funcion para controlar la carga de pokemons mediante un scroll determinado
-  const handleScroll = () => {
-    var scrollableDiv = document.getElementById('myWindows');
-    var isScrolledToBottom = scrollableDiv.scrollTop + scrollableDiv.clientHeight === scrollableDiv.scrollHeight;
+  // const handleScroll = () => {
+  //   var scrollableDiv = document.getElementById('myWindows');
+  //   var isScrolledToBottom = scrollableDiv.scrollTop + scrollableDiv.clientHeight === scrollableDiv.scrollHeight;
 
-    if (isScrolledToBottom) {
-      nextPageEffect()
-      console.log("Carga")
-    }
-  }
-
+  //   if (isScrolledToBottom) {
+  //     nextPageEffect()
+  //     console.log("Carga")
+  //   }
+  // }
+console.log("dasboard", envia)
 
   return (
     <main
-      onScroll={handleScroll}
+      // onScroll={handleScroll}
       id='myWindows'
     >
       {pokemonList.map((pokemon, index) => (
@@ -33,7 +33,8 @@ export default function Dashboard({ pokemonList, nextPageEffect }) {
 
         />
       ))}
-
+      
+      <p>{envia}</p>
       <Outlet />
     </main>
   );
