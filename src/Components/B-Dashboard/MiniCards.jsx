@@ -17,7 +17,7 @@ export const MiniCards = ({ number, img = "/Images/Icons/Silhouette.png", name, 
         onClick={handleMiniCardClick}
       >
         <div className="minicard-number">
-          <p>{number ? (<> #{addZeros(number)} </>) : (<i>!@#</i>)}{" "}
+          <p>{number ? (<> #{addZeros(number)} </>) : (<i className='error'>!@#</i>)}{" "}
           </p>
         </div>
 
@@ -26,7 +26,7 @@ export const MiniCards = ({ number, img = "/Images/Icons/Silhouette.png", name, 
         </div>
 
         <div className="minicard-name">
-          {name ? (<p>{name}</p>) : (<i>Pokemon does not exist.</i>)}
+          {name ? (<p>{name}</p>) : (<i className='error'>Pokemon doesn't exist.</i>)}
         </div>
 
         {/* <div className=''>

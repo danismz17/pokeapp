@@ -13,7 +13,7 @@ function Root() {
   const pageSize = 12; // Numero de pokemons por pagina
   const [isLoading, setIsLoading] = useState(false);
 
-  // Peticion a la API
+  //* Peticion a la API
   const getPokemons = async (page) => { // 'page' se utiliza para calcular el offset en la URL, el cual indica en que pagina se encuentra.
     try {
       setIsLoading(true);
@@ -25,7 +25,6 @@ function Root() {
           return await response.json();
         })
       );
-
       setPokemonList(prevList => [...prevList, ...pokemonsDataToPage]); // Concatenar los nuevos datos con los previos
     } catch (error) {
       console.log('Ha ocurrido un error: ', error);
@@ -35,7 +34,7 @@ function Root() {
     }
   };
 
-  // Solicita a la API una nueva pagina.
+  //* Solicita a la API una nueva pagina.
   const nextPage = () => {
     // Aumenta en 1 el numero de pagina ('page') solicitando que se muestren mas pokemons, luego para que se renderizen los cambios se lo pasa al useEffect.
     setTimeout(() => {
@@ -47,19 +46,25 @@ function Root() {
     getPokemons(currentPage);
   }, [currentPage]);
 
+
   const [inputSearch, setInputSearch] = useState('');
   const [sortPokemons, setSortPokemons] = useState([]);
 
-  // Buscador
+  //* Buscador
   const handleInputSearch = (e) => {
     const search = e.target.value.toString();
-    const sortPokemons = pokemonList.filter(pokemonName => pokemonName.name.includes(search.toLowerCase()));
-  
-    console.log('Pokemons filtrados:', sortPokemons[0]); // borrar
-
-    setSortPokemons(sortPokemons)
     setInputSearch(search);
   }
+
+  useEffect(() => {
+    // todo Agregar un buscador por numero.
+    const sortPokemons = pokemonList.filter(pokemon => (isNaN(inputSearch)) ? pokemon.name.includes(inputSearch.toLowerCase()) : pokemon.id == parseInt(inputSearch));
+
+    console.log('Pokemons filtrados:', sortPokemons[0]); // !borrar
+
+    setSortPokemons(sortPokemons) // ver
+  }, [inputSearch])
+
   return (
     <>
       {isLoading}
@@ -79,3 +84,4 @@ function Root() {
   )
 }
 export default Root;
+

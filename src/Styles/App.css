@@ -58,6 +58,10 @@ body {
     color: white;
 }
 
+.error{
+    color:black;
+
+}
 :root {
     /* identity */
     --clr-Primary: #DC0A2D;

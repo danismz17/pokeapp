@@ -36,8 +36,8 @@ const PokeCard = () => {
   useEffect(() => {
     getPokemonById();
   }, []);
-  
-  // Necesito consultar que tipo de pokemon es antes de que renderize.
+
+  //! Necesito consultar que tipo de pokemon es antes de que renderize.
   console.log(pokemon?.types?.[0]?.type?.name) // Consulta que tipo de pokemon es teniendo en cuenta el caso 'undefined' (al comienzo) 
   return (
     <>
