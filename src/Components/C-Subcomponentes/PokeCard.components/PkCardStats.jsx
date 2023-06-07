@@ -1,18 +1,26 @@
 import { icon } from '../PokeCard.components/icons.js'
-import { addZeros } from "../../Ohters/Function";
+import { addZeros } from "../../Ohters/Functions.js";
 import { ProgressBarCustom } from './ProgressBarCustom.jsx';
 
+import { getFontColorClass } from "../../Ohters/Functions";
+import { getBackgroundColorClass } from "../../Ohters/Functions";
+import { getBackgroundOpacityClass } from "../../Ohters/Functions";
+
 // Stats de la PokeCard
-export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
+export const PkCardStats = ({ type ,hp, atk, def, satk, sdef, spd }) => {
+  const fontClr = getFontColorClass(type);
+  const backgroundActive = getBackgroundColorClass(type);
+  const background = getBackgroundOpacityClass(type);
+
   return (
     <div className="stats__box">
       <div className="stats__text">
-        <span className='stats__text font-clr-fire'>HP</span>
-        <span className='stats__text font-clr-fire'>ATK</span>
-        <span className='stats__text font-clr-fire'>DEF</span>
-        <span className='stats__text font-clr-fire'>SATK</span>
-        <span className='stats__text font-clr-fire'>SDEF</span>
-        <span className='stats__text font-clr-fire'>SPD</span>
+        <span className={`stats__text ${fontClr}`}>HP</span>
+        <span className={`stats__text ${fontClr}`}>ATK</span>
+        <span className={`stats__text ${fontClr}`}>DEF</span>
+        <span className={`stats__text ${fontClr}`}>SATK</span>
+        <span className={`stats__text ${fontClr}`}>SDEF</span>
+        <span className={`stats__text ${fontClr}`}>SPD</span>
       </div>
 
       <img src={icon.divider96} alt="" />
@@ -26,13 +34,11 @@ export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
         <span className='stats__text_counter'>{addZeros(spd)}</span>
       </div>
 
-
-      {/* Para ir cambiando los colores segun el tipo de pokemon deberia de realizar una funcion aparte que modifique 
-          los balores de baseBgColor y bgColor
-      */}
       <div className="stats_progress">
         <div className="progress-bar">
-          <ProgressBarCustom now={hp} baseBgColor="#f57d3133" bgColor="#f57d31" />
+          
+          //! Ver
+          <ProgressBarCustom now={hp} baseBgColor={background} bgColor={backgroundActive} />
         </div>
         <div className="progress-bar">
           <ProgressBarCustom now={atk} baseBgColor="#f57d3133" bgColor="#f57d31" />

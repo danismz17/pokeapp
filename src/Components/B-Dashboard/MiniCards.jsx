@@ -1,5 +1,5 @@
 import React from 'react';
-import { addZeros } from '../Ohters/Function.js';
+import { addZeros } from '../Ohters/Functions.js';
 import { useNavigate } from 'react-router-dom';
 
 export const MiniCards = ({ number, img = "/Images/Icons/Silhouette.png", name, type1, type2 }) => {

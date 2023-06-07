@@ -42,6 +42,7 @@ function Root() {
     }, 1000);
   };
 
+  // Renderiza
   useEffect(() => {
     getPokemons(currentPage);
   }, [currentPage]);
@@ -56,13 +57,11 @@ function Root() {
     setInputSearch(search);
   }
 
+  // Renderiza al buscar
   useEffect(() => {
-    // todo Agregar un buscador por numero.
-    const sortPokemons = pokemonList.filter(pokemon => (isNaN(inputSearch)) ? pokemon.name.includes(inputSearch.toLowerCase()) : pokemon.id == parseInt(inputSearch));
-
-    console.log('Pokemons filtrados:', sortPokemons[0]); // !borrar
-
-    setSortPokemons(sortPokemons) // ver
+    const sortPokemons = pokemonList.filter((pokemon) =>
+      isNaN(inputSearch) ? pokemon.name.includes(inputSearch.toLowerCase()) : pokemon.id == parseInt(inputSearch));
+    setSortPokemons(sortPokemons)
   }, [inputSearch])
 
   return (
