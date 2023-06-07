@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// 
 const TypeContainer = ({ activeTags, handleTagContainerClick }) => {
   const tagColors = {
     all: '#212121',
@@ -46,7 +47,8 @@ const TypeContainer = ({ activeTags, handleTagContainerClick }) => {
   );
 };
 
-export default function SearchFilter() {
+// 
+export default function SearchFilter({ value, onChange }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState('/Images/Icons/sort.svg');
   const [activeTags, setActiveTags] = useState([]);
@@ -89,7 +91,12 @@ export default function SearchFilter() {
             <span>
               <img src="Images/Icons/search.svg" alt="" />
             </span>
-            <input type="search" placeholder="Search" />
+            <input
+              type="search"
+              placeholder="Search"
+              value={value}
+              onChange={onChange}
+            />
           </div>
         </div>
 

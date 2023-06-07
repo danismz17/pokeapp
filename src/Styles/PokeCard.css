@@ -7,10 +7,6 @@
   align-items: center;
 }
 
-.bg-color {
-  background-color: var(--clr-Fire);
-}
-
 .bg-card {
   position: absolute;
   object-fit: cover;
@@ -30,7 +26,6 @@
     top: 1vw;
   }
 }
-
 
 /* Header */
 .details__header {
@@ -82,6 +77,7 @@
   height: 200px;
   width: 200px;
 }
+
 /* Detalles del pokemon */
 /* Card! */
 .details__card {
@@ -116,7 +112,7 @@
   gap: 1rem;
 }
 
-.type {
+.details__type-text {
   color: var(--clr-font-white);
   padding: 2px 8px;
   border-radius: 10px;
@@ -125,17 +121,10 @@
   /* EXTRA: Agregar box-shadow */
 }
 
-/* Hacer todos los Colores  */
-.f-bg-fire {
-  background-color: var(--clr-Fire);
-}
-.f-fire {
-  color: var(--clr-Fire);
+.details__about{
   font: var(--fnt-header-subtitle-1-bold);
   text-transform: capitalize;
 }
-
-
 
 .details__about_text {
   width: 312px;
@@ -217,7 +206,6 @@
   display: flex;
   flex-direction: column;
   align-items: end;
-  color: var(--clr-Fire);
   font: var(--fnt-header-subtitle-3-bold);
   text-transform: uppercase;
 }
@@ -231,51 +219,82 @@
   font: var(--fnt-body-3-regular);
 }
 
-.stats_progres {
+.stats_progress {
   height: 90px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
-.progres-bar {
+.progress-bar {
   position: relative;
   flex-direction: column;
   display: flex;
-  /* width: 233px; */
   width: 233px;
   height: 4px;
-
   border-radius: 4px;
-  background-color: rgb(245, 125, 49, 0.2);
 }
 
-.progres-bar-charge {
-  position: relative;
-  flex-direction: column;
-  display: flex;
-  height: 8px;
-  border-radius: 4px;
-  background-color: rgb(245, 125, 49);
+
+.rotate-in-diag-2 {
+  -webkit-animation: rotate-in-diag-2 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: rotate-in-diag-2 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-/* --> VER <-- */
-.progres-1 {
-  width: 50%;
+@-webkit-keyframes rotate-in-diag-2 {
+  0% {
+      -webkit-transform: rotate3d(-1, 1, 0, -360deg);
+      transform: rotate3d(-1, 1, 0, -360deg);
+      opacity: 0;
+  }
+
+  100% {
+      -webkit-transform: rotate3d(-1, 1, 0, 0deg);
+      transform: rotate3d(-1, 1, 0, 0deg);
+      opacity: 1;
+  }
 }
-.progres-2 {
-  width: 15%;
+
+@keyframes rotate-in-diag-2 {
+  0% {
+      -webkit-transform: rotate3d(-1, 1, 0, -360deg);
+      transform: rotate3d(-1, 1, 0, -360deg);
+      opacity: 0;
+  }
+
+  100% {
+      -webkit-transform: rotate3d(-1, 1, 0, 0deg);
+      transform: rotate3d(-1, 1, 0, 0deg);
+      opacity: 1;
+  }
 }
-.progres-3 {
-  width: 40%;
+
+
+
+
+
+
+
+/* Identificar las clases que se debe cambiar segun el Tipo de Pokemon */
+
+
+/* Tipo Fuego */
+/* Afecta el BG de la progress bar (NO FUNCIONA) puesto que tiene que ser por props */
+/* .bg-op-Fire { 
+  background-color: var(--bg-Fire);
+} */
+
+
+/* --> Afecta el BG de  Fondo de la PokeCard del Texto que identifica el Tipo de Pokemon*/
+/* PkCardContainer y PKCardDetailsTop */
+.bg-fire {
+  background-color: var(--clr-Fire);
+  /* background-color: aqua; */
 }
-.progres-4 {
-  width: 49%;
-}
-.progres-5 {
-  width: 30%;
-}
-.progres-6 {
-  width: 70%;
+
+/* Afecta el color de letra del 'About' y de los stats*/
+/* PKCardDetailsTop y PkCardStats */
+.font-clr-fire {
+  color: var(--clr-Fire);
+  /* background-color: aqua; */
 }
