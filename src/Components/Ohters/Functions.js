@@ -135,3 +135,91 @@ export const getBackgroundOpacityClass = (type) => {
       return "";
   }
 };
+
+// Funcion para obtener la fuente en valor hexadecimal
+export const getBackgroundCompleteHex = (type) => {
+  switch (type) {
+    case "fire":
+      return "#F57D31";
+    case "water":
+      return "#6493EB";
+    case "bug":
+      return "#A7B723";
+    case "dark":
+      return "#7557AC";
+    case "dragon":
+      return "#7037FF";
+    case "electric":
+      return "#F9CF30";
+    case "fairy":
+      return "#E69EAC";
+    case "fighting":
+      return "#C12239";
+    case "flying":
+      return "#A891EC";
+    case "ghost":
+      return "#70559B";
+    case "normal":
+      return "#AAA67F";
+    case "grass":
+      return "#74CB48";
+    case "ground":
+      return "#DEC16B";
+    case "ice":
+      return "#9AD6DF";
+    case "poison":
+      return "#A43E9E";
+    case "psychic":
+      return "#FB5584";
+    case "rock":
+      return "#B69E31";
+    case "steel":
+      return "#B7B9D0";
+    default:
+      return "";
+  }
+};
+
+// Funcion para obtener el background en valor hexadecimal
+export const getBackgroundEmptyHex = (type) => {
+  switch (type) {
+    case "fire":
+      return "#F57D3133";
+    case "water":
+      return "#6493EB33";
+    case "bug":
+      return "#A7B72333";
+    case "dark":
+      return "#7557AC33";
+    case "dragon":
+      return "#7037FF33";
+    case "electric":
+      return "#F9CF3033";
+    case "fairy":
+      return "#E69EAC33";
+    case "fighting":
+      return "#C1223933";
+    case "flying":
+      return "#A891EC33";
+    case "ghost":
+      return "#70559B33";
+    case "normal":
+      return "#AAA67F33";
+    case "grass":
+      return "#74CB4833";
+    case "ground":
+      return "#DEC16B33";
+    case "ice":
+      return "#9AD6DF33";
+    case "poison":
+      return "#A43E9E33";
+    case "psychic":
+      return "#FB558433";
+    case "rock":
+      return "#B69E3133";
+    case "steel":
+      return "#B7B9D033";
+    default:
+      return "";
+  }
+};

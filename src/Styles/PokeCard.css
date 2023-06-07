@@ -436,7 +436,7 @@
   background-color: var(--clr-Water);
 }
 .font-clr-water {
-  color: var(--clr-Water);
+    color: var(--clr-Water);
 }
 .bg-op-Water {
   background-color: var(--bg-op-Water);

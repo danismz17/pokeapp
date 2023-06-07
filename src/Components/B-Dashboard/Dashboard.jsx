@@ -3,6 +3,7 @@ import { MiniCards } from './MiniCards';
 import { Outlet } from 'react-router-dom';
 
 export default function Dashboard({ pokemonList, sortPokemons, nextPageEffect }) {
+    
   //* Función para controlar la carga de pokemons mediante un scroll determinado
   const handleScroll = () => {
     var scrollableDiv = document.getElementById('myWindows');

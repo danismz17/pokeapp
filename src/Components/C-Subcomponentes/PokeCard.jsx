@@ -12,10 +12,10 @@ import { PkCardStatsContainer } from './PokeCard.components/PkCardStatsContainer
 import { PkCardStats } from './PokeCard.components/PkCardStats';
 
 const PokeCard = () => {
-  const { pokemonId } = useParams();
   const [pokemon, setPokemon] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [type, setType] = useState('');
+  const { pokemonId } = useParams();
 
   const getPokemonById = async () => {
     try {
@@ -48,11 +48,7 @@ const PokeCard = () => {
 
   useEffect(() => {
     getTypeOfPokemon();
-    console.log(pokemon?.types?.[0]?.type?.name) //! Borrar
   }, [pokemon]);
-
-
-
 
   return (
     <>

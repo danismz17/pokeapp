@@ -10,8 +10,10 @@ import { useEffect, useState } from 'react'
 function Root() {
   const [pokemonList, setPokemonList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); // Comienza en 1, para mantener el valor inicial del offset en 0.
-  const pageSize = 12; // Numero de pokemons por pagina
   const [isLoading, setIsLoading] = useState(false);
+  const [inputSearch, setInputSearch] = useState('');
+  const [sortPokemons, setSortPokemons] = useState([]);
+  const pageSize = 12; // Numero de pokemons por pagina
 
   //* Peticion a la API
   const getPokemons = async (page) => { // 'page' se utiliza para calcular el offset en la URL, el cual indica en que pagina se encuentra.
@@ -42,20 +44,17 @@ function Root() {
     }, 1000);
   };
 
-  // Renderiza
-  useEffect(() => {
-    getPokemons(currentPage);
-  }, [currentPage]);
-
-
-  const [inputSearch, setInputSearch] = useState('');
-  const [sortPokemons, setSortPokemons] = useState([]);
-
+  // todo hacer que ordene segun nombre o numero 
   //* Buscador
   const handleInputSearch = (e) => {
     const search = e.target.value.toString();
     setInputSearch(search);
   }
+
+  // Renderiza
+  useEffect(() => {
+    getPokemons(currentPage);
+  }, [currentPage]);
 
   // Renderiza al buscar
   useEffect(() => {
@@ -63,6 +62,7 @@ function Root() {
       isNaN(inputSearch) ? pokemon.name.includes(inputSearch.toLowerCase()) : pokemon.id == parseInt(inputSearch));
     setSortPokemons(sortPokemons)
   }, [inputSearch])
+
 
   return (
     <>

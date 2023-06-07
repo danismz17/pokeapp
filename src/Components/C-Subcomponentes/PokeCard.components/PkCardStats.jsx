@@ -3,14 +3,14 @@ import { addZeros } from "../../Ohters/Functions.js";
 import { ProgressBarCustom } from './ProgressBarCustom.jsx';
 
 import { getFontColorClass } from "../../Ohters/Functions";
-import { getBackgroundColorClass } from "../../Ohters/Functions";
-import { getBackgroundOpacityClass } from "../../Ohters/Functions";
+import { getBackgroundCompleteHex } from "../../Ohters/Functions";
+import { getBackgroundEmptyHex } from "../../Ohters/Functions";
 
 // Stats de la PokeCard
-export const PkCardStats = ({ type ,hp, atk, def, satk, sdef, spd }) => {
+export const PkCardStats = ({ type, hp, atk, def, satk, sdef, spd }) => {
   const fontClr = getFontColorClass(type);
-  const backgroundActive = getBackgroundColorClass(type);
-  const background = getBackgroundOpacityClass(type);
+  const backgroundComplete = getBackgroundCompleteHex(type);
+  const backgroundEmpty = getBackgroundEmptyHex(type);
 
   return (
     <div className="stats__box">
@@ -35,26 +35,12 @@ export const PkCardStats = ({ type ,hp, atk, def, satk, sdef, spd }) => {
       </div>
 
       <div className="stats_progress">
-        <div className="progress-bar">
-          
-          //! Ver
-          <ProgressBarCustom now={hp} baseBgColor={background} bgColor={backgroundActive} />
-        </div>
-        <div className="progress-bar">
-          <ProgressBarCustom now={atk} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
-        <div className="progress-bar">
-          <ProgressBarCustom now={def} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
-        <div className="progress-bar">
-          <ProgressBarCustom now={satk} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
-        <div className="progress-bar">
-          <ProgressBarCustom now={sdef} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
-        <div className="progress-bar">
-          <ProgressBarCustom now={spd} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
+          <ProgressBarCustom now={hp} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={atk} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={def} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={satk} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={sdef} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={spd} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
       </div>
 
     </div>
