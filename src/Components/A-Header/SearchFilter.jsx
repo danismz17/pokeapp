@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TypeContainer = ({ activeTags, handleTagContainerClick }) => {
+const TypeContainer = ({ activeTags, handleTagContainerClick, activeType }) => {
   const tagColors = {
     all: '#212121',
     bug: '#A7B723',
@@ -34,7 +34,7 @@ const TypeContainer = ({ activeTags, handleTagContainerClick }) => {
           <h6
             key={tag}
             id={tag}
-            className={`type-tag ${activeTags.includes(tag) ? 'active' : ''}`}
+            className={`type-tag ${activeTags.includes(tag) ? 'active' : ''} ${activeType === tag ? 'active-type' : ''}`}
             style={{ backgroundColor: activeTags.includes(tag) ? tagColors[tag] : '' }}
             onClick={() => handleTagClick(tag)}
           >
@@ -46,10 +46,9 @@ const TypeContainer = ({ activeTags, handleTagContainerClick }) => {
   );
 };
 
-export default function SearchFilter() {
+const SearchFilter = ({ value, onChange, activeType, handleTagContainerClick, activeTags }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState('/Images/Icons/sort.svg');
-  const [activeTags, setActiveTags] = useState([]);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -69,18 +68,6 @@ export default function SearchFilter() {
     }
   };
 
-  const handleTagContainerClick = (tag) => {
-    if (activeTags.includes(tag)) {
-      setActiveTags(activeTags.filter((activeTag) => activeTag !== tag));
-    } else {
-      if (activeTags.length < 2 && tag !== 'all') {
-        setActiveTags([...activeTags, tag]);
-      } else if (tag === 'all') {
-        setActiveTags([tag]);
-      }
-    }
-  };
-
   return (
     <>
       <div className="filter-block-container">
@@ -89,7 +76,12 @@ export default function SearchFilter() {
             <span>
               <img src="Images/Icons/search.svg" alt="" />
             </span>
-            <input type="search" placeholder="Search" />
+            <input
+              type="search"
+              placeholder="Search"
+              value={value}
+              onChange={onChange}
+            />
           </div>
         </div>
 
@@ -151,7 +143,11 @@ export default function SearchFilter() {
                   <h3>Filtrar por tipo</h3>
                 </div>
 
-                <TypeContainer activeTags={activeTags} handleTagContainerClick={handleTagContainerClick} />
+                <TypeContainer
+                  activeTags={activeTags}
+                  handleTagContainerClick={handleTagContainerClick}
+                  activeType={activeType}
+                />
               </div>
             </div>
           </div>
@@ -159,4 +155,6 @@ export default function SearchFilter() {
       )}
     </>
   );
-}
+};
+
+export default SearchFilter;

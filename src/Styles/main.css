@@ -19,12 +19,32 @@
     --clr-Grass: #74CB48;
     --clr-Ground: #DEC16B;
     --clr-Ice: #9AD6DF;
-    --clr-Posion: #A43E9E;
+    --clr-Poison: #A43E9E;
     --clr-Psychic: #FB5584;
     --clr-Rock: #B69E31;
     --clr-Steel: #B7B9D0;
     --clr-Water: #6493EB;
 
+    /* Tipos de pokemon Bg  opacidad de 0.2 */
+    --bg-op-Bug: #a7b72333;
+    --bg-op-Dark: #7557ac33;
+    --bg-op-Dragon: #7037ff33;
+    --bg-op-Electric: #f9cf3033;
+    --bg-op-Fairy: #e69eac33;
+    --bg-op-Fighting: #c1223933;
+    --bg-op-Fire: #f57d3133;
+    --bg-op-Flying: #a891ec33;
+    --bg-op-Ghost: #70559b33;
+    --bg-op-Normal: #aaa67f33;
+    --bg-op-Grass: #74cb4833;
+    --bg-op-Ground: #dec16b33;
+    --bg-op-Ice: #9ad6df33;
+    --bg-op-Poison: #a43e9e33;
+    --bg-op-Psychic: #fb558433;
+    --bg-op-Rock: #b69e3133;
+    --bg-op-Steel: #b7b9d033;
+    --bg-op-Water: #6493eb33;
+    
     /*Color de fuente */
 
     --clr-font-dark-gray: #212121;

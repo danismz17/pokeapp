@@ -1,17 +1,26 @@
 import { icon } from '../PokeCard.components/icons.js'
-import { addZeros } from "../../Ohters/Function";
+import { addZeros } from "../../Ohters/Functions.js";
+import { ProgressBarCustom } from './ProgressBarCustom.jsx';
+
+import { getFontColorClass } from "../../Ohters/Functions";
+import { getBackgroundCompleteHex } from "../../Ohters/Functions";
+import { getBackgroundEmptyHex } from "../../Ohters/Functions";
 
 // Stats de la PokeCard
-export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
+export const PkCardStats = ({ type, hp, atk, def, satk, sdef, spd }) => {
+  const fontClr = getFontColorClass(type);
+  const backgroundComplete = getBackgroundCompleteHex(type);
+  const backgroundEmpty = getBackgroundEmptyHex(type);
+
   return (
     <div className="stats__box">
       <div className="stats__text">
-        <span className='stats__text'>HP</span>
-        <span className='stats__text'>ATK</span>
-        <span className='stats__text'>DEF</span>
-        <span className='stats__text'>SATK</span>
-        <span className='stats__text'>SDEF</span>
-        <span className='stats__text'>SPD</span>
+        <span className={`stats__text ${fontClr}`}>HP</span>
+        <span className={`stats__text ${fontClr}`}>ATK</span>
+        <span className={`stats__text ${fontClr}`}>DEF</span>
+        <span className={`stats__text ${fontClr}`}>SATK</span>
+        <span className={`stats__text ${fontClr}`}>SDEF</span>
+        <span className={`stats__text ${fontClr}`}>SPD</span>
       </div>
 
       <img src={icon.divider96} alt="" />
@@ -25,28 +34,15 @@ export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
         <span className='stats__text_counter'>{addZeros(spd)}</span>
       </div>
 
-
-      {/* Corregir ProgressBar */}
-      <div className="stats_progres">
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-1'></div>
-        </div>
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-2'></div>
-        </div>
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-3'></div>
-        </div>
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-4'></div>
-        </div>
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-5'></div>
-        </div>
-        <div className='progres-bar'>
-          <div className='progres-bar-charge progres-6'></div>
-        </div>
+      <div className="stats_progress">
+          <ProgressBarCustom now={hp} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={atk} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={def} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={satk} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={sdef} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={spd} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
       </div>
+
     </div>
   );
 }

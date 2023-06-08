@@ -7,6 +7,7 @@ export default function MovileControls() {
         <div className='sort-container'>
           <h6>Sort by:</h6>
         </div>
+
         <div className='filter-box'>
           <div className="sort-by-number-container">
             <div className="checkbox-container">
@@ -20,7 +21,7 @@ export default function MovileControls() {
 
           <div className="sort-by-name-container">
             <div className="checkbox-container">
-            <input type="checkbox" />
+              <input type="checkbox" />
             </div>
             <div className='label-container'>
               <h6>Name</h6>
@@ -29,23 +30,19 @@ export default function MovileControls() {
 
           <div className="sort-by-type-container">
             <div className="checkbox-container">
-            <input type="checkbox" />
+              <input type="checkbox" />
             </div>
             <div className='label-container'>
               <h6>Type</h6>
             </div>
           </div>
 
-
-          
-
-
         </div>
       </div>
 
     </>
   )
-}import React from 'react'
+} import React from 'react'
 
 export default function MovileControls() {
   return (
@@ -67,7 +64,7 @@ export default function MovileControls() {
 
           <div className="sort-by-name-container">
             <div className="checkbox-container">
-            <input type="checkbox" />
+              <input type="checkbox" />
             </div>
             <div className='label-container'>
               <h6>Name</h6>
@@ -76,7 +73,7 @@ export default function MovileControls() {
 
           <div className="sort-by-type-container">
             <div className="checkbox-container">
-            <input type="checkbox" />
+              <input type="checkbox" />
             </div>
             <div className='label-container'>
               <h6>Type</h6>
@@ -84,7 +81,7 @@ export default function MovileControls() {
           </div>
 
 
-          
+
 
 
         </div>

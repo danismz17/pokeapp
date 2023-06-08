@@ -7,10 +7,6 @@
   align-items: center;
 }
 
-.bg-color {
-  background-color: var(--clr-Fire);
-}
-
 .bg-card {
   position: absolute;
   object-fit: cover;
@@ -73,7 +69,7 @@
 }
 
 .details__img {
-  object-fit:fill;
+  object-fit: fill;
   height: 200px;
   width: 200px;
 }
@@ -81,6 +77,7 @@
   height: 200px;
   width: 200px;
 }
+
 /* Detalles del pokemon */
 /* Card! */
 .details__card {
@@ -115,7 +112,7 @@
   gap: 1rem;
 }
 
-.type {
+.details__type-text {
   color: var(--clr-font-white);
   padding: 2px 8px;
   border-radius: 10px;
@@ -124,17 +121,10 @@
   /* EXTRA: Agregar box-shadow */
 }
 
-/* Hacer todos los Colores  */
-.f-bg-fire {
-  background-color: var(--clr-Fire);
-}
-.f-fire {
-  color: var(--clr-Fire);
+.details__about {
   font: var(--fnt-header-subtitle-1-bold);
   text-transform: capitalize;
 }
-
-
 
 .details__about_text {
   width: 312px;
@@ -216,7 +206,6 @@
   display: flex;
   flex-direction: column;
   align-items: end;
-  color: var(--clr-Fire);
   font: var(--fnt-header-subtitle-3-bold);
   text-transform: uppercase;
 }
@@ -230,51 +219,225 @@
   font: var(--fnt-body-3-regular);
 }
 
-.stats_progres {
+.stats_progress {
   height: 90px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
-.progres-bar {
+.progress-bar {
   position: relative;
   flex-direction: column;
   display: flex;
-  /* width: 233px; */
   width: 233px;
   height: 4px;
-
   border-radius: 4px;
-  background-color: rgb(245, 125, 49, 0.2);
 }
 
-.progres-bar-charge {
-  position: relative;
-  flex-direction: column;
-  display: flex;
-  height: 8px;
-  border-radius: 4px;
-  background-color: rgb(245, 125, 49);
+
+/* ? Colores Segun el tipo de pokemon */
+
+/* Para el tipo 'bug' */
+    /* --> Afecta el BG de la PokeCard del Texto que identifica el Tipo de Pokemon*/
+    /* ubicado en: PkCardContainer, PKCardDetailsTop y PkCardStats(Bg de la barra activa) */
+.bg-bug {
+  background-color: var(--clr-Bug);
+}
+    /* Afecta el color de letra del 'About' y de los stats*/
+    /* ubicado en: PKCardDetailsTop y PkCardStats */
+.font-clr-bug {
+  color: var(--clr-Bug);
+}
+.bg-op-Bug {
+    /* Afecta el BG del fondo de la progress bar */
+    /* ubicado en: PkCardStats */
+  background-color: var(--bg-op-Bug);
 }
 
-/* --> VER <-- */
-.progres-1 {
-  width: 50%;
+/* Para el tipo 'dark' */
+.bg-dark {
+  background-color: var(--clr-Dark);
 }
-.progres-2 {
-  width: 15%;
+.font-clr-dark {
+  color: var(--clr-Dark);
 }
-.progres-3 {
-  width: 40%;
+.bg-op-Dark {
+  background-color: var(--bg-op-Dark);
 }
-.progres-4 {
-  width: 49%;
+
+/* Para el tipo 'dragon' */
+.bg-dragon {
+  background-color: var(--clr-Dragon);
 }
-.progres-5 {
-  width: 30%;
+.font-clr-dragon {
+  color: var(--clr-Dragon);
 }
-.progres-6 {
-  width: 70%;
+.bg-op-Dragon {
+  background-color: var(--bg-op-Dragon);
+}
+
+/* Para el tipo 'electric' */
+.bg-electric {
+  background-color: var(--clr-Electric);
+}
+.font-clr-electric {
+  color: var(--clr-Electric);
+}
+.bg-op-Electric {
+  background-color: var(--bg-op-Electric);
+}
+
+/* Para el tipo 'fairy' */
+.bg-fairy {
+  background-color: var(--clr-Fairy);
+}
+.font-clr-fairy {
+  color: var(--clr-Fairy);
+}
+.bg-op-Fairy {
+  background-color: var(--bg-op-Fairy);
+}
+
+/* Para el tipo 'fighting' */
+.bg-fighting {
+  background-color: var(--clr-Fighting);
+}
+.font-clr-fighting {
+  color: var(--clr-Fighting);
+}
+.bg-op-Fighting {
+  background-color: var(--bg-op-Fighting);
+}
+
+/* Para el tipo 'fire' */
+.bg-fire{
+  background-color: var(--clr-Fire);
+}
+.font-clr-fire{
+  color: var(--clr-Fire)
+}
+.bg-op-Fire {
+  background-color: var(--bg-op-Fire);
+}
+
+/* Para el tipo 'flying' */
+.bg-flying {
+  background-color: var(--clr-Flying);
+}
+.font-clr-flying {
+  color: var(--clr-Flying);
+}
+.bg-op-Flying {
+  background-color: var(--bg-op-Flying);
+}
+
+/* Para el tipo 'ghost' */
+.bg-ghost {
+  background-color: var(--clr-Ghost);
+}
+.font-clr-ghost {
+  color: var(--clr-Ghost);
+}
+.bg-op-Ghost {
+  background-color: var(--bg-op-Ghost);
+}
+
+/* Para el tipo 'normal' */
+.bg-normal {
+  background-color: var(--clr-Normal);
+}
+.font-clr-normal {
+  color: var(--clr-Normal);
+}
+.bg-op-Normal {
+  background-color: var(--bg-op-Normal);
+}
+
+/* Para el tipo 'grass' */
+.bg-grass {
+  background-color: var(--clr-Grass);
+}
+.font-clr-grass {
+  color: var(--clr-Grass);
+}
+.bg-op-Grass {
+  background-color: var(--bg-op-Grass);
+}
+
+/* Para el tipo 'ground' */
+.bg-ground {
+  background-color: var(--clr-Ground);
+}
+.font-clr-ground {
+  color: var(--clr-Ground);
+}
+.bg-op-Ground {
+  background-color: var(--bg-op-Ground);
+}
+
+/* Para el tipo 'ice' */
+.bg-ice {
+  background-color: var(--clr-Ice);
+}
+.font-clr-ice {
+  color: var(--clr-Ice);
+}
+.bg-op-Ice {
+  background-color: var(--bg-op-Ice);
+}
+
+/* Para el tipo 'poison' */
+.bg-poison {
+  background-color: var(--clr-Poison);
+}
+.font-clr-poison {
+  color: var(--clr-Poison);
+}
+.bg-op-Poison {
+  background-color: var(--bg-op-Poison);
+}
+
+/* Para el tipo 'psychic' */
+.bg-psychic {
+  background-color: var(--clr-Psychic);
+}
+.font-clr-psychic {
+  color: var(--clr-Psychic);
+}
+.bg-op-Psychic {
+  background-color: var(--bg-op-Psychic);
+}
+
+/* Para el tipo 'rock' */
+.bg-rock {
+  background-color: var(--clr-Rock);
+}
+.font-clr-rock {
+  color: var(--clr-Rock);
+}
+.bg-op-Rock {
+  background-color: var(--bg-op-Rock);
+}
+
+/* Para el tipo 'steel' */
+.bg-steel {
+  background-color: var(--clr-Steel);
+}
+.font-clr-steel {
+  color: var(--clr-Steel);
+}
+.bg-op-Steel {
+  background-color: var(--bg-op-Steel);
+}
+
+/* Para el tipo 'water' */
+.bg-water {
+  background-color: var(--clr-Water);
+}
+.font-clr-water {
+    color: var(--clr-Water);
+}
+.bg-op-Water {
+  background-color: var(--bg-op-Water);
 }

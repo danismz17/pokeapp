@@ -4,7 +4,6 @@ import './../Styles/App.css'
 import IntroAnimation from '../Components/C-Subcomponentes/IntroAnimation';
 import Header from '../Components/A-Header/Header'
 import Dashboard from '../Components/B-Dashboard/Dashboard'
-import WebDesign from '../Components/C-Subcomponentes/WebDesign';
 // Manejo de estados
 import { useEffect, useState } from 'react'
 
@@ -49,6 +48,7 @@ function Root() {
     }, 1000);
   };
 
+
   //* Buscador
   const handleInputSearch = (e) => {
     const search = e.target.value.toString();
@@ -56,17 +56,14 @@ function Root() {
   }
 
   const handleTagContainerClick = (tag) => {
-    console.log("Comienzo")
+    console.log("hola")
     if (activeTags.includes(tag)) {
-      console.log("detnro if")
       setActiveTags(activeTags.filter((activeTag) => activeTag !== tag));
-
     } else {
       if (activeTags.length < 2 && tag !== 'all') {
-        console.log("detnro else")
+        console.log("hola444")
         setActiveTags([...activeTags, tag]);
       } else if (tag === 'all') {
-        console.log("hola444")
         setActiveTags([tag]);
       }
     }
@@ -108,7 +105,7 @@ function Root() {
     const sortPokemons = pokemonList.filter((pokemon) =>
       isNaN(inputSearch) ? pokemon.name.includes(inputSearch.toLowerCase()) : pokemon.id == parseInt(inputSearch));
     setSortPokemons(sortPokemons)
-  }, [inputSearch, pokemonList]);
+  }, [inputSearch])
 
   // useEffect(() => {
   //   getTypeOfPokemon();
@@ -121,7 +118,6 @@ function Root() {
       {isLoading}
       <div className="web-container">
         <IntroAnimation />
-        <WebDesign/>
         <Header
           value={inputSearch}
           onChange={handleInputSearch}
