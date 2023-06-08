@@ -1,18 +1,26 @@
 import { icon } from '../PokeCard.components/icons.js'
-import { addZeros } from "../../Ohters/Function";
+import { addZeros } from "../../Ohters/Functions.js";
 import { ProgressBarCustom } from './ProgressBarCustom.jsx';
 
+import { getFontColorClass } from "../../Ohters/Functions";
+import { getBackgroundCompleteHex } from "../../Ohters/Functions";
+import { getBackgroundEmptyHex } from "../../Ohters/Functions";
+
 // Stats de la PokeCard
-export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
+export const PkCardStats = ({ type, hp, atk, def, satk, sdef, spd }) => {
+  const fontClr = getFontColorClass(type);
+  const backgroundComplete = getBackgroundCompleteHex(type);
+  const backgroundEmpty = getBackgroundEmptyHex(type);
+
   return (
     <div className="stats__box">
       <div className="stats__text">
-        <span className='stats__text font-clr-fire'>HP</span>
-        <span className='stats__text font-clr-fire'>ATK</span>
-        <span className='stats__text font-clr-fire'>DEF</span>
-        <span className='stats__text font-clr-fire'>SATK</span>
-        <span className='stats__text font-clr-fire'>SDEF</span>
-        <span className='stats__text font-clr-fire'>SPD</span>
+        <span className={`stats__text ${fontClr}`}>HP</span>
+        <span className={`stats__text ${fontClr}`}>ATK</span>
+        <span className={`stats__text ${fontClr}`}>DEF</span>
+        <span className={`stats__text ${fontClr}`}>SATK</span>
+        <span className={`stats__text ${fontClr}`}>SDEF</span>
+        <span className={`stats__text ${fontClr}`}>SPD</span>
       </div>
 
       <img src={icon.divider96} alt="" />
@@ -26,29 +34,13 @@ export const PkCardStats = ({ hp, atk, def, satk, sdef, spd }) => {
         <span className='stats__text_counter'>{addZeros(spd)}</span>
       </div>
 
-
-      {/* Para ir cambiando los colores segun el tipo de pokemon deberia de realizar una funcion aparte que modifique 
-          los balores de baseBgColor y bgColor
-      */}
       <div className="stats_progress">
-        <div className="progress-bar">
-          <ProgressBarCustom now={hp} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
-        <div className="progress-bar">
-          <ProgressBarCustom now={atk} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
-        <div className="progress-bar">
-          <ProgressBarCustom now={def} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
-        <div className="progress-bar">
-          <ProgressBarCustom now={satk} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
-        <div className="progress-bar">
-          <ProgressBarCustom now={sdef} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
-        <div className="progress-bar">
-          <ProgressBarCustom now={spd} baseBgColor="#f57d3133" bgColor="#f57d31" />
-        </div>
+          <ProgressBarCustom now={hp} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={atk} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={def} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={satk} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={sdef} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
+          <ProgressBarCustom now={spd} baseBgColor={backgroundEmpty} bgColor={backgroundComplete} />
       </div>
 
     </div>

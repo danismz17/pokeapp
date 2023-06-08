@@ -12,10 +12,10 @@ import { PkCardStatsContainer } from './PokeCard.components/PkCardStatsContainer
 import { PkCardStats } from './PokeCard.components/PkCardStats';
 
 const PokeCard = () => {
-  const { pokemonId } = useParams();
   const [pokemon, setPokemon] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  // const [type, setType] = useState('');
+  const [type, setType] = useState('');
+  const { pokemonId } = useParams();
 
   const getPokemonById = async () => {
     try {
@@ -33,26 +33,35 @@ const PokeCard = () => {
     }
   };
 
+  const getTypeOfPokemon = () => {
+    const typePk = pokemon?.types?.[0]?.type?.name;
+    // Consulta que tipo de pokemon es teniendo en cuenta el caso 'undefined' (al comienzo) 
+    setType(typePk);
+  };
+
+  // Renderiza
   useEffect(() => {
     getPokemonById();
   }, []);
 
-  //! Necesito consultar que tipo de pokemon es antes de que renderize.
-  console.log(pokemon?.types?.[0]?.type?.name) // Consulta que tipo de pokemon es teniendo en cuenta el caso 'undefined' (al comienzo) 
+  useEffect(() => {
+    getTypeOfPokemon();
+  }, [pokemon]);
+
   return (
     <>
       {isLoading && (
         <p>Pikachu corriendo - Loading...</p>
-        // <IntroAnimation/> Animacion 2
+        // todo <IntroAnimation/> Animacion 2
       )}
       {pokemon && (
-        <PkCardContainer>
+        <PkCardContainer type={type}>
           <PkCardHeader
             name={pokemon.name}
             number={pokemon.id}
           />
           <PkCardPicture
-            img={pokemon.sprites["other"]["official-artwork"]["front_default"]}
+            img={pokemon.sprites?.["other"]?.["official-artwork"]?.["front_default"]}
           />
           <PkCardDetailsContainer>
             <PKCardDetailsTop
@@ -63,15 +72,13 @@ const PokeCard = () => {
               weight={pokemon.weight}
               height={pokemon.height}
               moves={pokemon.moves}
-
-              // Importanete! Hay que tener cuidado porque no todos lo textos estan en ingles, e inclusive hay veces que no existe el texto.
-              // Se debera poner un operador ternario.
-              text={pokemon["flavor_text_entries"][10]["flavor_text"]}
-            // textES={pokemon["flavor_text_entries"][26]["flavor_text"]}
+              // Cuidado porque no todos lo textos estan en ingles, e inclusive hay veces que no existe el texto.
+              text={pokemon?.["flavor_text_entries"]?.[10]?.["flavor_text"]}
             />
 
             <PkCardStatsContainer>
               <PkCardStats
+                type={type}
                 hp={pokemon["stats"][0]["base_stat"]}
                 atk={pokemon["stats"][1]["base_stat"]}
                 def={pokemon["stats"][2]["base_stat"]}

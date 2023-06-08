@@ -1,7 +1,7 @@
 import Logo from "./Logo";
 import SearchFilter from "./SearchFilter";
 
-export default function Header({ value, onChange }) {
+export default function Header({ value, onChange, activeType, handleTagContainerClick, activeTags}) {
   return (
     <>
       <header>
@@ -9,7 +9,10 @@ export default function Header({ value, onChange }) {
         <SearchFilter 
         value={value}
         onChange={onChange}
-         />
+        activeType={activeType}
+        handleTagContainerClick={handleTagContainerClick}
+        activeTags={activeTags}
+        />
       </header>
     </>
   )

@@ -1,11 +1,14 @@
 import { icon } from '../PokeCard.components/icons.js'
+import { getBackgroundColorClass } from '../../Ohters/Functions.js'
 
 // Contenedor externo de la PokeCard
-export const PkCardContainer = ({ children }) => {
+export const PkCardContainer = ({ children, type }) => {
+  const background = getBackgroundColorClass(type);
+
   return (
     <>
-      <div className={` rotate-in-diag-2 details__container bg-fire`}>
-        <img className='bg-card'  src={icon["pk_bg"]} alt="background Pokeball" />
+      <div className={`details__container  ${background}`}>
+        <img className='bg-card' src={icon["pk_bg"]} alt="background Pokeball" />
         {children}
       </div>
     </>

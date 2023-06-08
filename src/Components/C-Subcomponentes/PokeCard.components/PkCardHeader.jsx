@@ -1,6 +1,6 @@
 import { icon } from '../PokeCard.components/icons.js'
 import { useNavigate } from "react-router-dom";
-import { addZeros } from "../../Ohters/Function.js";
+import { addZeros } from "../../Ohters/Functions.js";
 
 // Parte superior de la PokeCard 
 export const PkCardHeader = ({ name, number }) => {
