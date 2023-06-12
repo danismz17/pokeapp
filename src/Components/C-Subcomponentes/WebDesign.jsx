@@ -12,7 +12,7 @@ export default function WebDesign() {
         </div>
 
         <div className="web-hero-pokeanimation-container2">
-          <img src="/public/Images/onix.gif" alt="" />
+          <img src="../onix.gif" alt="" />
         </div>
       </div>
 
@@ -20,7 +20,7 @@ export default function WebDesign() {
         <ul>
           <li><a href="#Bienvenidos">Bienvenidos</a></li>
           <li><a href="#App">PokeApp</a></li>
-          <div> <img className='web-menu-logo slide-in-bck-center' src="/Images/PokeApp-6-6-2023.png/" alt="" /></div>
+          <div> <img className='web-menu-logo slide-in-bck-center' src="../PokeApp-6-6-2023.png/" alt="" /></div>
           <li><a href="#episodios">Episodios</a></li>
           <li><a href="#footer">Creditos</a></li>
         </ul>
@@ -28,7 +28,7 @@ export default function WebDesign() {
 
       <div className="web-intro-container fade-in-left">
         <div className="pokemon-animation-container1">
-          <img src="public/Images/pokemon-sections/coso.gif" alt="" />
+          <img src="../coso.gif" alt="" />
         </div>
 
         <div id='Bienvenidos' className="web-intro-text-container">
@@ -47,7 +47,7 @@ export default function WebDesign() {
         </div>
 
         <div className="pokemon-animation-container2">
-          <a href="a"><img src="public/Images/pokemon-sections/blastois.gif" alt="" /></a>
+          <a href="a"><img src="../blastois.gif" alt="" /></a>
         </div>
       </div>
 
@@ -68,13 +68,13 @@ export default function WebDesign() {
           <h3>Revivi todos los episodios</h3>
           <p>Todas las aventuras las encontras haciendo click en la pokebola</p>
           <a href="https://youtu.be/NdmH7K_rM-w?list=PLpbdLXz_BiMVQVvEgL5JYVdx0XuPvJIar">
-            <img src="/Images/Pokeball-PNG-Photos.png" alt="" />
+            <img src="../Pokeball-PNG-Photos.png" alt="" />
           </a>
         </div>
 
 
         <div id='episodios' className="pokemon-animation-container3">
-          <a href="a"><img src="public/Images/pokemon-sections/snorlax.gif" alt="" /></a>
+          <a href="a"><img src="../snorlax.gif" alt="" /></a>
         </div>
       </div>
 
@@ -84,9 +84,9 @@ export default function WebDesign() {
         </div>
 
         <div className="redes-container">
-          <img src="public\Images\fb.png" alt="" />
-          <img src="public\Images\tt.png" alt="" />
-          <img src="public\Images\ig.png" alt="" />
+          <img src="..\fb.png" alt="" />
+          <img src="..\tt.png" alt="" />
+          <img src="..\ig.png" alt="" />
 
         </div>
 
