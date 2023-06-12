@@ -50,6 +50,7 @@ html {
   align-items: center;
   font-family: 'Poppins', sans-serif;
   font-size: 10px;
+  scroll-behavior: smooth;
 
 }
 
@@ -220,7 +221,7 @@ body {
 .web-hero-container {
   width: 100%;
   height: 800px;
-  background-image: url(./public/3field.JPG);
+  background-image: url(/public/3field.JPG);
   background-position: center center;
   background-size: cover;
 
