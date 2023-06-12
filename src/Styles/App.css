@@ -220,7 +220,7 @@ body {
 .web-hero-container {
   width: 100%;
   height: 800px;
-  background-image: url(./public/Images/3field.JPG);
+  background-image: url(./public/3field.JPG);
   background-position: center center;
   background-size: cover;
 
@@ -928,7 +928,7 @@ header {
   width: 80%;
   height: 100%;
   background-color: #FB5584;
-  background-image: url(/Images/backgrounds/pk-portada-1.gif);
+  background-image: url(/Images/pk-portada-1.gif);
   background-position: center center;
   background-size: contain;
 }
