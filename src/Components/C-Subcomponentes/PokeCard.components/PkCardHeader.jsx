@@ -12,7 +12,7 @@ export const PkCardHeader = ({ name, number }) => {
   };
 
   return (
-      <div className="details__header">
+    <div className="details__header">
       <img
         src={icon["arrow_left"]}
         alt="Arrow to the Left"

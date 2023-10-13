@@ -1116,12 +1116,13 @@ main {
 
 /* ____________MOBILE_____________ */
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) { */
+@media (min-width: 640px) {
 
 
   .web-container {
       width: 360px;
-      height: 100vh;
+      height: 700px;
       padding: 5px;
       background-color: var(--clr-Primary);
   }
